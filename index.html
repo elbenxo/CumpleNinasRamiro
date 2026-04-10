@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cumple 3er Trimestre - Infantil 3 Años B - CEIP Ramiro de Maeztu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pink: #FF6B9D;
+            --yellow: #FFD93D;
+            --blue: #6BC5F8;
+            --green: #6BCB77;
+            --purple: #B983FF;
+            --orange: #FFA45B;
+            --red: #FF6B6B;
+            --bg: #FFF8F0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: var(--bg);
+            color: #444;
+            overflow-x: hidden;
+        }
+
+        /* ===== CONFETTI ANIMATION ===== */
+        .confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            opacity: 0.7;
+            animation: confetti-fall linear infinite;
+        }
+
+        .confetti:nth-child(1)  { left: 5%;  background: var(--pink);   animation-duration: 4.5s; animation-delay: 0s;   border-radius: 50%; }
+        .confetti:nth-child(2)  { left: 15%; background: var(--yellow); animation-duration: 5.2s; animation-delay: 0.3s; border-radius: 2px; }
+        .confetti:nth-child(3)  { left: 25%; background: var(--blue);   animation-duration: 4.8s; animation-delay: 0.8s; border-radius: 50%; }
+        .confetti:nth-child(4)  { left: 35%; background: var(--green);  animation-duration: 5.5s; animation-delay: 1.2s; border-radius: 2px; }
+        .confetti:nth-child(5)  { left: 45%; background: var(--purple); animation-duration: 4.3s; animation-delay: 0.5s; border-radius: 50%; }
+        .confetti:nth-child(6)  { left: 55%; background: var(--orange); animation-duration: 5.0s; animation-delay: 1.0s; border-radius: 2px; }
+        .confetti:nth-child(7)  { left: 65%; background: var(--red);    animation-duration: 4.7s; animation-delay: 0.2s; border-radius: 50%; }
+        .confetti:nth-child(8)  { left: 75%; background: var(--pink);   animation-duration: 5.3s; animation-delay: 0.7s; border-radius: 2px; }
+        .confetti:nth-child(9)  { left: 85%; background: var(--yellow); animation-duration: 4.6s; animation-delay: 1.5s; border-radius: 50%; }
+        .confetti:nth-child(10) { left: 95%; background: var(--blue);   animation-duration: 5.1s; animation-delay: 0.4s; border-radius: 2px; }
+        .confetti:nth-child(11) { left: 10%; background: var(--green);  animation-duration: 4.9s; animation-delay: 1.8s; border-radius: 50%; width: 8px; height: 8px; }
+        .confetti:nth-child(12) { left: 30%; background: var(--purple); animation-duration: 5.4s; animation-delay: 2.0s; border-radius: 2px; width: 8px; height: 8px; }
+        .confetti:nth-child(13) { left: 50%; background: var(--orange); animation-duration: 4.4s; animation-delay: 2.3s; border-radius: 50%; width: 8px; height: 8px; }
+        .confetti:nth-child(14) { left: 70%; background: var(--red);    animation-duration: 5.6s; animation-delay: 2.5s; border-radius: 2px; width: 8px; height: 8px; }
+        .confetti:nth-child(15) { left: 90%; background: var(--pink);   animation-duration: 4.2s; animation-delay: 2.8s; border-radius: 50%; width: 8px; height: 8px; }
+
+        @keyframes confetti-fall {
+            0%   { top: -10%; transform: rotate(0deg) translateX(0); opacity: 0.8; }
+            25%  { transform: rotate(90deg) translateX(15px); }
+            50%  { transform: rotate(180deg) translateX(-15px); opacity: 0.6; }
+            75%  { transform: rotate(270deg) translateX(10px); }
+            100% { top: 110%; transform: rotate(360deg) translateX(-10px); opacity: 0; }
+        }
+
+        /* ===== FLOATING BALLOONS ===== */
+        .balloon {
+            position: fixed;
+            bottom: -150px;
+            width: 50px;
+            height: 65px;
+            border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+            animation: balloon-float linear infinite;
+            opacity: 0.25;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .balloon::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            width: 1px;
+            height: 30px;
+            background: rgba(0,0,0,0.2);
+            transform: translateX(-50%);
+        }
+
+        .balloon:nth-child(1) { left: 8%;  background: var(--pink);   animation-duration: 12s; animation-delay: 0s; }
+        .balloon:nth-child(2) { left: 20%; background: var(--yellow); animation-duration: 14s; animation-delay: 2s; }
+        .balloon:nth-child(3) { left: 40%; background: var(--blue);   animation-duration: 11s; animation-delay: 4s; }
+        .balloon:nth-child(4) { left: 60%; background: var(--green);  animation-duration: 13s; animation-delay: 1s; }
+        .balloon:nth-child(5) { left: 80%; background: var(--purple); animation-duration: 15s; animation-delay: 3s; }
+        .balloon:nth-child(6) { left: 92%; background: var(--orange); animation-duration: 12.5s; animation-delay: 5s; }
+
+        @keyframes balloon-float {
+            0%   { bottom: -150px; transform: translateX(0) rotate(0deg); opacity: 0; }
+            10%  { opacity: 0.25; }
+            50%  { transform: translateX(30px) rotate(5deg); }
+            90%  { opacity: 0.25; }
+            100% { bottom: 110vh; transform: translateX(-20px) rotate(-5deg); opacity: 0; }
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            text-align: center;
+            padding: 40px 20px 30px;
+            background: linear-gradient(135deg, #FFE5EC 0%, #FFF3E0 25%, #E8F5E9 50%, #E3F2FD 75%, #F3E5F5 100%);
+            position: relative;
+        }
+
+        .school-badge {
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .school-badge svg {
+            width: 90px;
+            height: 90px;
+            filter: drop-shadow(0 3px 6px rgba(0,0,0,0.15));
+        }
+
+        .school-name {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .hero-title {
+            font-family: 'Baloo 2', cursive;
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--pink), var(--purple), var(--blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-family: 'Baloo 2', cursive;
+            font-size: 1.5rem;
+            color: var(--orange);
+            font-weight: 600;
+        }
+
+        .class-label {
+            display: inline-block;
+            margin-top: 12px;
+            background: white;
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--purple);
+            box-shadow: 0 3px 12px rgba(185, 131, 255, 0.25);
+        }
+
+        /* ===== CAKE DIVIDER ===== */
+        .cake-divider {
+            text-align: center;
+            font-size: 2.5rem;
+            padding: 10px;
+            line-height: 1;
+        }
+
+        /* ===== EVENT DETAILS SECTION ===== */
+        .event-section {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px 20px 30px;
+        }
+
+        .section-title {
+            font-family: 'Baloo 2', cursive;
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .event-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .event-card .icon {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+        }
+
+        .event-card .label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #999;
+            margin-bottom: 4px;
+        }
+
+        .event-card .value {
+            font-family: 'Baloo 2', cursive;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #555;
+        }
+
+        .event-card.date  { border-top: 4px solid var(--pink); }
+        .event-card.time  { border-top: 4px solid var(--yellow); }
+        .event-card.place { border-top: 4px solid var(--blue); grid-column: 1 / -1; }
+        .event-card.food  { border-top: 4px solid var(--green); grid-column: 1 / -1; }
+
+        .event-card .address {
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 4px;
+            font-weight: 400;
+        }
+
+        .map-link {
+            display: inline-block;
+            margin-top: 10px;
+            background: var(--blue);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .map-link:hover {
+            background: #4AB0E8;
+            transform: scale(1.05);
+        }
+
+        /* ===== BIRTHDAY KIDS SECTION ===== */
+        .birthday-section {
+            background: linear-gradient(180deg, var(--bg) 0%, #FFF0F5 100%);
+            padding: 30px 20px 40px;
+        }
+
+        .birthday-grid {
+            max-width: 750px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 18px;
+        }
+
+        .birthday-card {
+            background: white;
+            border-radius: 20px;
+            padding: 22px 16px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .birthday-card:hover {
+            transform: translateY(-5px) rotate(1deg);
+        }
+
+        .birthday-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+        }
+
+        .birthday-card.jun::before { background: linear-gradient(90deg, var(--pink), var(--orange)); }
+        .birthday-card.jul::before { background: linear-gradient(90deg, var(--blue), var(--green)); }
+        .birthday-card.aug::before { background: linear-gradient(90deg, var(--purple), var(--pink)); }
+
+        .birthday-card .month-badge {
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .birthday-card.jun .month-badge { background: #FFE5EC; color: var(--pink); }
+        .birthday-card.jul .month-badge { background: #E3F2FD; color: var(--blue); }
+        .birthday-card.aug .month-badge { background: #F3E5F5; color: var(--purple); }
+
+        .birthday-card .child-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .birthday-card .child-name {
+            font-family: 'Baloo 2', cursive;
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: #555;
+        }
+
+        .birthday-card .child-date {
+            font-size: 0.85rem;
+            color: #aaa;
+            margin-top: 2px;
+        }
+
+        .birthday-card .parents {
+            font-size: 0.8rem;
+            color: #bbb;
+            margin-top: 6px;
+            font-style: italic;
+        }
+
+        /* ===== INFO SECTION ===== */
+        .info-section {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        .info-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+
+        .info-card .info-icon {
+            font-size: 1.8rem;
+            margin-bottom: 6px;
+        }
+
+        .info-card h3 {
+            font-family: 'Baloo 2', cursive;
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 6px;
+        }
+
+        .info-card p {
+            font-size: 0.85rem;
+            color: #888;
+            line-height: 1.5;
+        }
+
+        .info-card.full-width {
+            grid-column: 1 / -1;
+        }
+
+        /* ===== RSVP SECTION ===== */
+        .rsvp-section {
+            text-align: center;
+            padding: 30px 20px 40px;
+            background: linear-gradient(135deg, #FFF3E0, #FFE5EC, #E3F2FD);
+        }
+
+        .rsvp-box {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 25px;
+            padding: 30px 25px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+        }
+
+        .rsvp-box .rsvp-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .rsvp-box h2 {
+            font-family: 'Baloo 2', cursive;
+            font-size: 1.6rem;
+            color: var(--pink);
+            margin-bottom: 8px;
+        }
+
+        .rsvp-box p {
+            font-size: 0.95rem;
+            color: #777;
+            line-height: 1.6;
+        }
+
+        .rsvp-box .deadline {
+            display: inline-block;
+            margin-top: 15px;
+            background: linear-gradient(135deg, var(--pink), var(--purple));
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            padding: 25px 20px;
+            font-size: 0.8rem;
+            color: #ccc;
+        }
+
+        footer .hearts {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 600px) {
+            .hero-title { font-size: 1.9rem; }
+            .hero-subtitle { font-size: 1.2rem; }
+            .event-cards { grid-template-columns: 1fr; }
+            .event-card.place, .event-card.food { grid-column: auto; }
+            .info-cards { grid-template-columns: 1fr; }
+            .info-card.full-width { grid-column: auto; }
+            .birthday-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .birthday-card .child-name { font-size: 1.15rem; }
+            .school-badge svg { width: 70px; height: 70px; }
+        }
+
+        @media (max-width: 400px) {
+            .birthday-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ===== BOUNCE ANIMATION ===== */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .bounce {
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        /* ===== SPARKLE ===== */
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.2); }
+        }
+
+        .sparkle {
+            animation: sparkle 1.5s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Confetti -->
+    <div class="confetti-container">
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+    </div>
+
+    <!-- Floating Balloons -->
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+
+    <div class="content">
+
+        <!-- ===== HERO ===== -->
+        <section class="hero">
+            <div class="school-badge">
+                <!-- CEIP Ramiro de Maeztu - Escudo SVG (Cruz de Malta) -->
+                <svg viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Shield shape -->
+                    <path d="M50 5 L90 20 L90 60 Q90 95 50 108 Q10 95 10 60 L10 20 Z" fill="#1B3A5C" stroke="#C9A94E" stroke-width="2.5"/>
+                    <path d="M50 10 L85 23 L85 58 Q85 90 50 103 Q15 90 15 58 L15 23 Z" fill="#1E4D7B"/>
+                    <!-- Maltese Cross -->
+                    <g transform="translate(50,52)" fill="#C9A94E">
+                        <!-- Vertical bar -->
+                        <polygon points="-5,-28 5,-28 8,-8 -8,-8"/>
+                        <polygon points="-5,28 5,28 8,8 -8,8"/>
+                        <!-- Horizontal bar -->
+                        <polygon points="-28,-5 -28,5 -8,8 -8,-8"/>
+                        <polygon points="28,-5 28,5 8,8 8,-8"/>
+                        <!-- Center -->
+                        <circle cx="0" cy="0" r="6" fill="#C9A94E"/>
+                    </g>
+                    <!-- School initials -->
+                    <text x="50" y="92" text-anchor="middle" fill="#C9A94E" font-family="serif" font-size="7" font-weight="bold" letter-spacing="1">CEIP R. MAEZTU</text>
+                </svg>
+            </div>
+            <div class="school-name">CEIP Ramiro de Maeztu</div>
+            <h1 class="hero-title">Fiesta de Cumple del 3er Trimestre</h1>
+            <p class="hero-subtitle">Junio &bull; Julio &bull; Agosto</p>
+            <div class="class-label">Infantil 3 Años B</div>
+        </section>
+
+        <div class="cake-divider bounce">🎂</div>
+
+        <!-- ===== EVENT DETAILS ===== -->
+        <section class="event-section">
+            <h2 class="section-title">Detalles del Evento</h2>
+            <div class="event-cards">
+                <div class="event-card date">
+                    <div class="icon">📅</div>
+                    <div class="label">Fecha</div>
+                    <div class="value">Sábado 20 de Junio</div>
+                </div>
+                <div class="event-card time">
+                    <div class="icon">🕚</div>
+                    <div class="label">Hora</div>
+                    <div class="value">11:00 h</div>
+                </div>
+                <div class="event-card place">
+                    <div class="icon">🦘</div>
+                    <div class="label">Lugar</div>
+                    <div class="value">Kangaroo's Parque Infantil</div>
+                    <div class="address">C/ Eugenio Salazar 45, 28002 Madrid (Chamartín)</div>
+                    <a href="https://maps.google.com/?q=Calle+de+Eugenio+Salazar+45+28002+Madrid" target="_blank" rel="noopener" class="map-link">📍 Ver en Google Maps</a>
+                </div>
+                <div class="event-card food">
+                    <div class="icon">🍕</div>
+                    <div class="label">Comida</div>
+                    <div class="value">La comida de los niños está incluida</div>
+                    <div class="address">Pizza, hamburguesa o perrito + bebida + tarta + bolsa de chuches</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="cake-divider"><span class="sparkle">⭐</span></div>
+
+        <!-- ===== BIRTHDAY KIDS ===== -->
+        <section class="birthday-section">
+            <h2 class="section-title">Nuestros Cumpleañeros 🥳</h2>
+            <div class="birthday-grid">
+
+                <!-- JUNIO -->
+                <div class="birthday-card jun">
+                    <span class="month-badge">Junio</span>
+                    <span class="child-emoji">🎈</span>
+                    <div class="child-name">Andrea</div>
+                    <div class="child-date">4 de junio</div>
+                    <div class="parents">Bea y Andrés</div>
+                </div>
+
+                <div class="birthday-card jun">
+                    <span class="month-badge">Junio</span>
+                    <span class="child-emoji">🌟</span>
+                    <div class="child-name">Vera</div>
+                    <div class="child-date">14 de junio</div>
+                    <div class="parents">Rosa y Víctor</div>
+                </div>
+
+                <div class="birthday-card jun">
+                    <span class="month-badge">Junio</span>
+                    <span class="child-emoji">🎉</span>
+                    <div class="child-name">Jaime de la Puente</div>
+                    <div class="child-date">29 de junio</div>
+                    <div class="parents">Yvonne y Javier</div>
+                </div>
+
+                <!-- JULIO -->
+                <div class="birthday-card jul">
+                    <span class="month-badge">Julio</span>
+                    <span class="child-emoji">🦋</span>
+                    <div class="child-name">Nora</div>
+                    <div class="child-date">14 de julio</div>
+                    <div class="parents">Irene y Benxamín</div>
+                </div>
+
+                <div class="birthday-card jul">
+                    <span class="month-badge">Julio</span>
+                    <span class="child-emoji">🌈</span>
+                    <div class="child-name">Claudia</div>
+                    <div class="child-date">18 de julio</div>
+                    <div class="parents">Liz y Raúl</div>
+                </div>
+
+                <!-- AGOSTO -->
+                <div class="birthday-card aug">
+                    <span class="month-badge">Agosto</span>
+                    <span class="child-emoji">🌻</span>
+                    <div class="child-name">Alicia</div>
+                    <div class="child-date">13 de agosto</div>
+                    <div class="parents">Ferrán y Amparo</div>
+                </div>
+
+                <div class="birthday-card aug">
+                    <span class="month-badge">Agosto</span>
+                    <span class="child-emoji">🚀</span>
+                    <div class="child-name">Juan</div>
+                    <div class="child-date">22 de agosto</div>
+                    <div class="parents">Cristina y Vicente</div>
+                </div>
+
+            </div>
+        </section>
+
+        <div class="cake-divider bounce">🎁</div>
+
+        <!-- ===== INFORMACIÓN EXTRA ===== -->
+        <section class="info-section">
+            <h2 class="section-title">Información Importante</h2>
+            <div class="info-cards">
+                <div class="info-card">
+                    <div class="info-icon">💰</div>
+                    <h3>Coste</h3>
+                    <p>La fiesta la pagan los padres de los cumpleañeros. Los compañeros de clase <strong>no pagan nada</strong>.</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">👧👦</div>
+                    <h3>Hermanos</h3>
+                    <p>Los hermanos/as son bienvenidos. Su coste corre a cargo de cada familia.</p>
+                </div>
+                <div class="info-card full-width">
+                    <div class="info-icon">📍</div>
+                    <h3>Cómo llegar</h3>
+                    <p>
+                        <strong>Kangaroo's Parque Infantil</strong><br>
+                        C/ Eugenio Salazar 45, 28002 Madrid<br>
+                        Barrio de Chamartín &bull; Zona Prosperidad<br><br>
+                        <strong>Metro:</strong> Prosperidad (L4) o Alfonso XIII (L4)<br>
+                        <strong>Autobús:</strong> Líneas 9, 16, 19, 51
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== RSVP ===== -->
+        <section class="rsvp-section">
+            <div class="rsvp-box">
+                <div class="rsvp-icon bounce">📬</div>
+                <h2>¡Confirma tu asistencia!</h2>
+                <p>Para poder organizar bien la fiesta, necesitamos saber cuántos niños vendrán. Si tu peque va a asistir, avísanos indicando también si vendrá algún hermano/a.</p>
+                <div class="deadline">Confirmar antes del 13 de junio</div>
+            </div>
+        </section>
+
+        <!-- ===== FOOTER ===== -->
+        <footer>
+            <div class="hearts">💛💙💜💚🧡</div>
+            <p>Infantil 3 Años B &bull; CEIP Ramiro de Maeztu &bull; Madrid</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
