@@ -519,24 +519,27 @@
         <!-- ===== HERO ===== -->
         <section class="hero">
             <div class="school-badge">
-                <!-- CEIP Ramiro de Maeztu - Escudo SVG (Cruz de Malta) -->
-                <svg viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Shield shape -->
-                    <path d="M50 5 L90 20 L90 60 Q90 95 50 108 Q10 95 10 60 L10 20 Z" fill="#1B3A5C" stroke="#C9A94E" stroke-width="2.5"/>
-                    <path d="M50 10 L85 23 L85 58 Q85 90 50 103 Q15 90 15 58 L15 23 Z" fill="#1E4D7B"/>
-                    <!-- Maltese Cross -->
-                    <g transform="translate(50,52)" fill="#C9A94E">
-                        <!-- Vertical bar -->
-                        <polygon points="-5,-28 5,-28 8,-8 -8,-8"/>
-                        <polygon points="-5,28 5,28 8,8 -8,8"/>
-                        <!-- Horizontal bar -->
-                        <polygon points="-28,-5 -28,5 -8,8 -8,-8"/>
-                        <polygon points="28,-5 28,5 8,8 8,-8"/>
-                        <!-- Center -->
-                        <circle cx="0" cy="0" r="6" fill="#C9A94E"/>
-                    </g>
-                    <!-- School initials -->
-                    <text x="50" y="92" text-anchor="middle" fill="#C9A94E" font-family="serif" font-size="7" font-weight="bold" letter-spacing="1">CEIP R. MAEZTU</text>
+                <!-- CEIP Ramiro de Maeztu - Escudo real -->
+                <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Shield outline (yellow border) -->
+                    <path d="M50 2 C35 2 20 8 10 18 L10 65 Q10 100 50 116 Q90 100 90 65 L90 18 C80 8 65 2 50 2 Z" fill="#FFD700" stroke="#FFD700" stroke-width="1"/>
+                    <!-- Shield inner (navy) -->
+                    <path d="M50 6 C37 6 24 11 15 20 L15 63 Q15 96 50 112 Q85 96 85 63 L85 20 C76 11 63 6 50 6 Z" fill="#1a1a6e"/>
+                    <!-- Top section: CP on navy -->
+                    <!-- Horizontal divider line -->
+                    <line x1="15" y1="52" x2="85" y2="52" stroke="#FFD700" stroke-width="1.5"/>
+                    <!-- Vertical divider line (bottom half) -->
+                    <line x1="50" y1="52" x2="50" y2="112" stroke="#FFD700" stroke-width="1.5"/>
+                    <!-- Bottom-left quadrant: light blue -->
+                    <path d="M15 52 L50 52 L50 112 Q15 96 15 63 Z" fill="#7EC8E3"/>
+                    <!-- Bottom-right quadrant stays navy (already filled) -->
+                    <!-- Letters: CP (top) -->
+                    <text x="33" y="42" text-anchor="middle" fill="#FFD700" font-family="serif" font-size="28" font-weight="bold" font-style="italic">C</text>
+                    <text x="67" y="42" text-anchor="middle" fill="#FFD700" font-family="serif" font-size="28" font-weight="bold" font-style="italic">P</text>
+                    <!-- Letters: R (bottom-left, on light blue) -->
+                    <text x="33" y="88" text-anchor="middle" fill="#FFD700" font-family="serif" font-size="32" font-weight="bold" font-style="italic">R</text>
+                    <!-- Letters: M (bottom-right, on navy) -->
+                    <text x="67" y="88" text-anchor="middle" fill="#4a4aaa" font-family="serif" font-size="32" font-weight="bold" font-style="italic">M</text>
                 </svg>
             </div>
             <div class="school-name">CEIP Ramiro de Maeztu</div>
