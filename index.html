@@ -312,24 +312,13 @@
             height: 5px;
         }
 
-        .birthday-card.jun::before { background: linear-gradient(90deg, var(--pink), var(--orange)); }
-        .birthday-card.jul::before { background: linear-gradient(90deg, var(--blue), var(--green)); }
-        .birthday-card.aug::before { background: linear-gradient(90deg, var(--purple), var(--pink)); }
-
-        .birthday-card .month-badge {
-            display: inline-block;
-            padding: 3px 12px;
-            border-radius: 50px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-        }
-
-        .birthday-card.jun .month-badge { background: #FFE5EC; color: var(--pink); }
-        .birthday-card.jul .month-badge { background: #E3F2FD; color: var(--blue); }
-        .birthday-card.aug .month-badge { background: #F3E5F5; color: var(--purple); }
+        .birthday-card:nth-child(1)::before { background: linear-gradient(90deg, var(--pink), var(--orange)); }
+        .birthday-card:nth-child(2)::before { background: linear-gradient(90deg, var(--yellow), var(--green)); }
+        .birthday-card:nth-child(3)::before { background: linear-gradient(90deg, var(--blue), var(--purple)); }
+        .birthday-card:nth-child(4)::before { background: linear-gradient(90deg, var(--green), var(--blue)); }
+        .birthday-card:nth-child(5)::before { background: linear-gradient(90deg, var(--purple), var(--pink)); }
+        .birthday-card:nth-child(6)::before { background: linear-gradient(90deg, var(--orange), var(--yellow)); }
+        .birthday-card:nth-child(7)::before { background: linear-gradient(90deg, var(--red), var(--purple)); }
 
         .birthday-card .child-emoji {
             font-size: 2.5rem;
@@ -570,7 +559,7 @@
                 <div class="event-card time">
                     <div class="icon">🕚</div>
                     <div class="label">Hora</div>
-                    <div class="value">11:00 h</div>
+                    <div class="value">11:00 - 13:30 h</div>
                 </div>
                 <div class="event-card place">
                     <div class="icon">🦘</div>
@@ -595,62 +584,45 @@
             <h2 class="section-title">Nuestros Cumpleañeros 🥳</h2>
             <div class="birthday-grid">
 
-                <!-- JUNIO -->
                 <div class="birthday-card jun">
-                    <span class="month-badge">Junio</span>
                     <span class="child-emoji">🎈</span>
                     <div class="child-name">Andrea</div>
-                    <div class="child-date">4 de junio</div>
                     <div class="parents">Bea y Andrés</div>
                 </div>
 
                 <div class="birthday-card jun">
-                    <span class="month-badge">Junio</span>
                     <span class="child-emoji">🌟</span>
                     <div class="child-name">Vera</div>
-                    <div class="child-date">14 de junio</div>
                     <div class="parents">Rosa y Víctor</div>
                 </div>
 
-                <div class="birthday-card jun">
-                    <span class="month-badge">Junio</span>
+                <div class="birthday-card jul">
                     <span class="child-emoji">🎉</span>
                     <div class="child-name">Jaime de la Puente</div>
-                    <div class="child-date">29 de junio</div>
                     <div class="parents">Yvonne y Javier</div>
                 </div>
 
-                <!-- JULIO -->
                 <div class="birthday-card jul">
-                    <span class="month-badge">Julio</span>
                     <span class="child-emoji">🦋</span>
                     <div class="child-name">Nora</div>
-                    <div class="child-date">14 de julio</div>
                     <div class="parents">Irene y Benxamín</div>
                 </div>
 
-                <div class="birthday-card jul">
-                    <span class="month-badge">Julio</span>
+                <div class="birthday-card aug">
                     <span class="child-emoji">🌈</span>
                     <div class="child-name">Claudia</div>
-                    <div class="child-date">18 de julio</div>
                     <div class="parents">Liz y Raúl</div>
                 </div>
 
-                <!-- AGOSTO -->
                 <div class="birthday-card aug">
-                    <span class="month-badge">Agosto</span>
                     <span class="child-emoji">🌻</span>
                     <div class="child-name">Alicia</div>
-                    <div class="child-date">13 de agosto</div>
                     <div class="parents">Ferrán y Amparo</div>
                 </div>
 
                 <div class="birthday-card aug">
-                    <span class="month-badge">Agosto</span>
                     <span class="child-emoji">🚀</span>
                     <div class="child-name">Juan</div>
-                    <div class="child-date">22 de agosto</div>
                     <div class="parents">Cristina y Vicente</div>
                 </div>
 
